@@ -1,0 +1,103 @@
+{
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "strategy": "rules",
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "block"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "domain:music.163.com",
+          "domain:music.126.net"
+        ],
+        "outboundTag": "music"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "geosite:cn"
+        ],
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "ip": [
+          "geoip:cn"
+        ],
+        "outboundTag": "direct"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "inn",
+      "port": 8080,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "0a2ff964-0f0b-47a9-8d7e-53d88447a43e",
+            "alterId": 0
+          }
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "CF",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "666986.xyz",
+            "port": 443,
+            "users": [
+              {
+                "id": "",
+                "security": "auto",
+                "alterId": 0
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "host": "666986.xyz",
+          "path": "/"
+        }
+      }
+    },
+    {
+      "protocol": "http",
+      "settings": {
+        "servers": [
+          {
+            "address": "81.70.255.175",
+            "port": 8088
+          }
+        ]
+      },
+      "tag": "music"
+    },
+    {
+      "protocol": "freedom",
+      "tag": "direct",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ]
+}
