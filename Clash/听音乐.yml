@@ -10,35 +10,44 @@ proxies:
       server: xx.xx.xx,
       port: 443,
       type: vmess,
-      uuid: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx,
+      uuid: xxxx-xxxx-xxxx-xxxx-xxxxxxxx,
       alterId: 0,
       cipher: auto,
       tls: true,
       skip-cert-verify: true,
       network: ws,
-      ws-opts: { path: /xxxxx, headers: { Host: xx.xx.xx } },
+      ws-opts: { path: /xxxx, headers: { Host: xx.xx.xx } },
       udp: false
     }
 proxy-groups:
-  - name: 🚀 节点选择
-    type: select
-    proxies:
-      - ♻️ 自动选择
-      - 🇭🇰 香港节点
-      - 🇺🇲 美国节点
-      - 🇯🇵 日本节点
-      - 🚀 手动切换
-      - DIRECT
-  - name: 🚀 手动切换
-    type: select
-    proxies:
-      - DIRECT
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇺🇲 美国节点
+      - 🇨🇦 加拿大节点
+      - DIRECT
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🚀 手动切换
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇺🇲 美国节点
+      - 🇨🇦 加拿大节点
+      - DIRECT
+  - name: 🚀 手动切换
+    type: select
+    proxies:
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇺🇲 美国节点
+      - 🇨🇦 加拿大节点
       - DIRECT
   - name: 🌍 国外媒体
     type: select
@@ -55,7 +64,6 @@ proxy-groups:
     proxies:
       - DIRECT
       - 🚀 节点选择
-      - ♻️ 自动选择
   - name: 🛑 全球拦截
     type: select
     proxies:
@@ -72,19 +80,24 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-  - name: 🇭🇰 香港节点
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 50
-    proxies:
-      - DIRECT
   - name: 🇯🇵 日本节点
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
+      - 🇯🇵 「日本」东京
+      - 🇯🇵 「日本」东京ARM
+      - 🇯🇵 「日本」大阪JMS-c16s4
+      - DIRECT
+  - name: 🇸🇬 新加坡节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
+    proxies:
+      - 🇸🇬 「新加坡」直连
+      - 🇸🇬 「新加坡」中转「广州」
       - DIRECT
   - name: 🇺🇲 美国节点
     type: url-test
@@ -92,6 +105,23 @@ proxy-groups:
     interval: 300
     tolerance: 150
     proxies:
+      - 🇺🇸 「美国」芝加哥
+      - 🇺🇸 「美国」洛杉矶 feng
+      - 🇺🇸 「美国」圣何塞
+      - 🇺🇸 「美国」洛杉矶 JMS-c16s1
+      - 🇺🇸 「美国」洛杉矶 JMS-c16s2
+      - 🇺🇸 「美国」洛杉矶 JMS-c16s3
+      - 🇺🇸 「美国」费利蒙 JMS-c16s801
+      - 🇺🇸 「美国」中转「上海」
+      - 🇺🇸 「美国」中转「广州」ss
+      - DIRECT
+  - name: 🇨🇦 加拿大节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
+    proxies:
+      - 🇨🇦 「加拿大」JMS-c16s5
       - DIRECT
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
