@@ -5,6 +5,7 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
+
 proxy-groups:
   - name: 🚀 节点选择
     type: select
