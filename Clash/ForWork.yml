@@ -5,7 +5,150 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
- 
+  
+proxy-groups:
+  - name: ♻️ 自动选择
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇰🇷 韩国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇺🇲 美国节点
+      - 🇨🇦 加拿大节点
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇰🇷 韩国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇺🇲 美国节点
+      - 🇨🇦 加拿大节点
+      - DIRECT
+  - name: 🚀 手动切换
+    type: select
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇰🇷 韩国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇺🇲 美国节点
+      - 🇨🇦 加拿大节点
+      - DIRECT
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🎯 全球直连
+  - name: 🎧 网易云
+    type: select
+    proxies:
+      - OnlyMusic
+      - 🚀 节点选择
+  - name: 📺 哔哩哔哩
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🍃 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+  - name: 🇭🇰 香港节点
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🇭🇰 「香港」中转「CF」
+      - 🇭🇰 「CDN」KR-ARM(2c12h)CDN-HK
+  - name: 🇰🇷 韩国节点
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🇰🇷 「CDN」KR-Oracle-ARM(1c6h)CDN
+      - 🇰🇷 「CDN」KR-ARM(2c12h)CDN-MO2
+      - 🇰🇷 「CDN」KR-ARM(2c12h)CDN-SZ2
+      - 🇰🇷 「CDN」KR-ARM(2c12h)CDN-MO
+      - 🇰🇷 「CDN」KR-ARM(2c12h)CDN-MO1
+      - 🇰🇷 「CDN」KR-ARM(2c12h)CDN-MO1-clone
+      - 🇰🇷 「CDN」KR-CDN-MO
+      - 🇰🇷 「CDN」KR-CDN-MO2
+  - name: 🇯🇵 日本节点
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🇯🇵 「CDN」JP-ARM-CDN-MO
+      - 🇯🇵 「CDN」JP-ARM-CDN-MO2
+      - 🇯🇵 「CDN」JP-ARM-CDN
+      - 🇯🇵「日本」Hysteria
+      - 🇯🇵「日本」Trojan
+      - 🇯🇵「日本」Tuic
+      - 🇯🇵「日本」东京
+      - 🇯🇵「日本」东京ARM
+      - 🇯🇵「日本」大阪JMS-c16s4
+  - name: 🇸🇬 新加坡节点
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 600
+    tolerance: 50
+    proxies:
+      - 🇸🇬 「新加坡」直连
+      - 🇸🇬 「新加坡」中转「广州」
+  - name: 🇺🇲 美国节点
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 300
+    tolerance: 150
+    proxies:
+      - 🇺🇸 「美国」中转「CF」RackNerd
+      - 🇺🇸 「美国」中转「CF」v4
+      - 🇺🇸「美国」洛杉矶 Hysteria
+      - 🇺🇸「美国」西雅图 Tuic
+      - 🇺🇸「美国」圣何塞 Tuic
+      - 🇺🇸「美国」芝加哥
+      - 🇺🇸「美国」洛杉矶 feng
+      - 🇺🇸「美国」圣何塞
+      - 🇺🇸「美国」洛杉矶 JMS-c16s1
+      - 🇺🇸「美国」洛杉矶 JMS-c16s2
+      - 🇺🇸「美国」洛杉矶 JMS-c16s3
+      - 🇺🇸「美国」费利蒙 JMS-c16s801
+      - 🇺🇸「美国」中转「上海」
+      - 🇺🇸「美国」中转「广州」ss
+  - name: 🇨🇦 加拿大节点
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 600
+    tolerance: 50
+    proxies:
+      - 🇨🇦 「加拿大」JMS-c16s5
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
   - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
