@@ -19,16 +19,20 @@ rules:
   - DOMAIN,iadmusicmatvideo.music.126.net,REJECT
 
   # Netease Music Domain规则
-  - DOMAIN-SUFFIX,163yun.com,NeteaseUnblockMusic
-  - DOMAIN-SUFFIX,music.163.com,NeteaseUnblockMusic
-  - DOMAIN-SUFFIX,music.126.net,NeteaseUnblockMusic
-  - DOMAIN-SUFFIX,api.iplay.163.com,NeteaseUnblockMusic
-  - DOMAIN-SUFFIX,apm.music.163.com,NeteaseUnblockMusic
-  - DOMAIN-SUFFIX,apm3.music.163.com,NeteaseUnblockMusic
-  - DOMAIN-SUFFIX,interface.music.163.com,NeteaseUnblockMusic
-  - DOMAIN-SUFFIX,interface3.music.163.com,NeteaseUnblockMusic
-  - DOMAIN-SUFFIX,mam.netease.com,NeteaseUnblockMusic
-  - DOMAIN-SUFFIX,hz.netease.com,NeteaseUnblockMusic
+  - DOMAIN,api.iplay.163.com,NeteaseUnblockMusic
+  - DOMAIN,apm3.music.163.com,NeteaseUnblockMusic
+  - DOMAIN,apm.music.163.com,NeteaseUnblockMusic
+  - DOMAIN,interface3.music.163.com,NeteaseUnblockMusic
+  - DOMAIN,interface.music.163.com,NeteaseUnblockMusic
+  - DOMAIN,music.163.com,NeteaseUnblockMusic
+
+  - DOMAIN,httpdns.n.netease.com,NeteaseUnblockMusic
+  - DOMAIN,ac.dun.163yun.com,NeteaseUnblockMusic
+  - DOMAIN,crash.163.com,NeteaseUnblockMusic
+  - DOMAIN,mam.netease.com,NeteaseUnblockMusic
+  - DOMAIN,clientlog.music.163.com,NeteaseUnblockMusic
+  - DOMAIN,clientlog3.music.163.com,NeteaseUnblockMusic
+
   # Netease Music CIDR规则
   - IP-CIDR,39.105.63.80/32,NeteaseUnblockMusic
   - IP-CIDR,47.100.127.239/32,NeteaseUnblockMusic
