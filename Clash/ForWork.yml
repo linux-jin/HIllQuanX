@@ -5,7 +5,7 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  
+ 
 proxy-groups:
   - name: ♻️ 自动选择
     type: url-test
@@ -19,6 +19,7 @@ proxy-groups:
       - 🇸🇬 新加坡节点
       - 🇺🇲 美国节点
       - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
   - name: 🚀 节点选择
     type: select
     proxies:
@@ -30,6 +31,7 @@ proxy-groups:
       - 🇸🇬 新加坡节点
       - 🇺🇲 美国节点
       - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
       - DIRECT
   - name: 🚀 手动切换
     type: select
@@ -40,6 +42,7 @@ proxy-groups:
       - 🇸🇬 新加坡节点
       - 🇺🇲 美国节点
       - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
       - DIRECT
   - name: 🌍 国外媒体
     type: select
@@ -54,6 +57,12 @@ proxy-groups:
   - name: 📺 哔哩哔哩
     type: select
     proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+  - name: 📲 电报消息
+    type: select
+    proxies:
+      - ♻️ 自动选择
       - 🚀 节点选择
       - 🎯 全球直连
   - name: 🎯 全球直连
@@ -83,37 +92,35 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
+      - 🇭🇰 「香港」Trojan
+      - 🇭🇰 「香港」TaiPo
       - 🇭🇰 「香港」中转「CF」
-      - 🇭🇰 「CDN」KR-ARM(2c12h)CDN-HK
   - name: 🇰🇷 韩国节点
     type: url-test
     url: http://www.google.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
+      - 🇰🇷 「CDN」KR-CDN-MO
+      - 🇰🇷 「CDN」KR-CDN-MO2
+      - 🇭🇰 「CDN」KR-ARM(2c12h)CDN-HK
       - 🇰🇷 「CDN」KR-Oracle-ARM(1c6h)CDN
       - 🇰🇷 「CDN」KR-ARM(2c12h)CDN-MO2
       - 🇰🇷 「CDN」KR-ARM(2c12h)CDN-SZ2
       - 🇰🇷 「CDN」KR-ARM(2c12h)CDN-MO
       - 🇰🇷 「CDN」KR-ARM(2c12h)CDN-MO1
       - 🇰🇷 「CDN」KR-ARM(2c12h)CDN-MO1-clone
-      - 🇰🇷 「CDN」KR-CDN-MO
-      - 🇰🇷 「CDN」KR-CDN-MO2
   - name: 🇯🇵 日本节点
     type: url-test
     url: http://www.google.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
+      - 🇯🇵 「日本」东京ARM
+      - 🇯🇵 「日本」Tuic
+      - 🇯🇵 「CDN」JP-ARM-CDN
       - 🇯🇵 「CDN」JP-ARM-CDN-MO
       - 🇯🇵 「CDN」JP-ARM-CDN-MO2
-      - 🇯🇵 「CDN」JP-ARM-CDN
-      - 🇯🇵「日本」Hysteria
-      - 🇯🇵「日本」Trojan
-      - 🇯🇵「日本」Tuic
-      - 🇯🇵「日本」东京
-      - 🇯🇵「日本」东京ARM
-      - 🇯🇵「日本」大阪JMS-c16s4
   - name: 🇸🇬 新加坡节点
     type: url-test
     url: http://www.google.com/generate_204
@@ -121,6 +128,7 @@ proxy-groups:
     tolerance: 50
     proxies:
       - 🇸🇬 「新加坡」直连
+      - 🇸🇬 「新加坡」三毛
       - 🇸🇬 「新加坡」中转「广州」
   - name: 🇺🇲 美国节点
     type: url-test
@@ -128,20 +136,20 @@ proxy-groups:
     interval: 300
     tolerance: 150
     proxies:
-      - 🇺🇸 「美国」中转「CF」RackNerd
+      - 🇺🇸 「美国」西雅图 Tuic
+      - 🇺🇸 「美国」圣何塞 Tuic
+      - 🇺🇸 「美国」洛杉矶 JMS-c16s1
+      - 🇺🇸 「美国」洛杉矶 JMS-c16s2
+      - 🇺🇸 「美国」洛杉矶 JMS-c16s3
+      - 🇺🇸 「美国」费利蒙 JMS-c16s801
       - 🇺🇸 「美国」中转「CF」v4
-      - 🇺🇸「美国」洛杉矶 Hysteria
-      - 🇺🇸「美国」西雅图 Tuic
-      - 🇺🇸「美国」圣何塞 Tuic
-      - 🇺🇸「美国」芝加哥
-      - 🇺🇸「美国」洛杉矶 feng
-      - 🇺🇸「美国」圣何塞
-      - 🇺🇸「美国」洛杉矶 JMS-c16s1
-      - 🇺🇸「美国」洛杉矶 JMS-c16s2
-      - 🇺🇸「美国」洛杉矶 JMS-c16s3
-      - 🇺🇸「美国」费利蒙 JMS-c16s801
-      - 🇺🇸「美国」中转「上海」
-      - 🇺🇸「美国」中转「广州」ss
+      - 🇺🇸 「美国」中转「CF」RackNerd
+      - 🇺🇸 「美国」中转「上海」
+      - 🇺🇸 「美国」芝加哥
+      - 🇺🇸 「美国」华盛顿 cc-vl
+      - 🇺🇸 「美国」洛杉矶
+      - 🇺🇸 「美国」圣何塞
+      - 🇺🇸 「美国」洛杉矶 cc
   - name: 🇨🇦 加拿大节点
     type: url-test
     url: http://www.google.com/generate_204
@@ -149,6 +157,23 @@ proxy-groups:
     tolerance: 50
     proxies:
       - 🇨🇦 「加拿大」JMS-c16s5
+      - 🇨🇦 「加拿大」中转「CF」v4
+      - 🇨🇦 「加拿大」中转「CF」v6
+  - name: 🇬🇧 英国节点
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 600
+    tolerance: 50
+    proxies:
+      - 🇬🇧 「英国」伦敦ORA-RE-H2
+      - 🇬🇧 「英国」伦敦ORA-RE-TCP
+  - name: 🇷🇺 俄罗斯节点
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 600
+    tolerance: 50
+    proxies:
+      - 🇷🇺 「俄罗斯」中转「CF」三毛
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
   - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
@@ -2174,6 +2199,18 @@ rules:
   - DOMAIN-SUFFIX,yt.be,🌍 国外媒体
   - DOMAIN-SUFFIX,ytimg.com,🌍 国外媒体
   - DOMAIN,music.youtube.com,🌍 国外媒体
+  - DOMAIN-SUFFIX,t.me,📲 电报消息
+  - DOMAIN-SUFFIX,tdesktop.com,📲 电报消息
+  - DOMAIN-SUFFIX,telegra.ph,📲 电报消息
+  - DOMAIN-SUFFIX,telegram.me,📲 电报消息
+  - DOMAIN-SUFFIX,telegram.org,📲 电报消息
+  - DOMAIN-SUFFIX,telesco.pe,📲 电报消息
+  - IP-CIDR,91.108.0.0/16,📲 电报消息,no-resolve
+  - IP-CIDR,109.239.140.0/24,📲 电报消息,no-resolve
+  - IP-CIDR,149.154.160.0/20,📲 电报消息,no-resolve
+  - IP-CIDR6,2001:67c:4e8::/48,📲 电报消息,no-resolve
+  - IP-CIDR6,2001:b28:f23d::/48,📲 电报消息,no-resolve
+  - IP-CIDR6,2001:b28:f23f::/48,📲 电报消息,no-resolve
   # Netease Music Advertising
   - DOMAIN,admusicpic.music.126.net,REJECT
   - DOMAIN,iadmat.nosdn.127.net,REJECT
